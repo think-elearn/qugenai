@@ -5,7 +5,7 @@ from .views import generate_exam_questions
 app_name = "ai"
 urlpatterns = [
     path(
-        "q-gen/",
+        "qugen/",
         view=generate_exam_questions,
         name="generate_exam_questions",
     ),
