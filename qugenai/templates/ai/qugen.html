@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h1>Question Generator</h1>
+  <div class="col-md-6">
+    <form action="{% url 'ai:generate_exam_questions' %}" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input type="submit" value="Generate Questions" />
+    </form>
+  </div>
+  {% if exam_questions %}
+    <h2>Generated Exam Questions:</h2>
+    <div>
+      <h3>Subject: {{ exam_questions.subject }}</h3>
+      {% for question in exam_questions.questions %}
+        <div class="question-block">
+          <h4>Question {{ forloop.counter }}</h4>
+          <p>{{ question.question }}</p>
+          <ul>
+            <li>A) {{ question.options.A }}</li>
+            <li>B) {{ question.options.B }}</li>
+            <li>C) {{ question.options.C }}</li>
+            <li>D) {{ question.options.D }}</li>
+          </ul>
+          <p>
+            <strong>Correct Option:</strong> {{ question.correct_option }}
+          </p>
+          <p>
+            <strong>Rationale:</strong> {{ question.rationale }}
+          </p>
+          <p>
+            <strong>Tags:</strong> {{ question.tags|join:", " }}
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endblock content %}
