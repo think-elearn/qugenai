@@ -19,12 +19,12 @@
         <div class="question-block">
           <h4>Question {{ forloop.counter }}</h4>
           <p>{{ question.question }}</p>
-          <ul>
-            <li>A) {{ question.options.A }}</li>
-            <li>B) {{ question.options.B }}</li>
-            <li>C) {{ question.options.C }}</li>
-            <li>D) {{ question.options.D }}</li>
-          </ul>
+          <ol type="A">
+            <li>{{ question.options.A }}</li>
+            <li>{{ question.options.B }}</li>
+            <li>{{ question.options.C }}</li>
+            <li>{{ question.options.D }}</li>
+          </ol>
           <p>
             <strong>Correct Option:</strong> {{ question.correct_option }}
           </p>
