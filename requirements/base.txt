@@ -25,4 +25,4 @@ drf-spectacular==0.28.0  # https://github.com/tfranzel/drf-spectacular
 
 # OpenAI
 # ------------------------------------------------------------------------------
-openai==1.60.2  # https://platform.openai.com/docs/overview
+openai==1.61.1  # https://platform.openai.com/docs/overview
